@@ -1,0 +1,281 @@
+@import "~font-awesome/css/font-awesome.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+:root {
+  --primary-color: #e30019;
+  --secondary-color: #212529;
+  --third-color: #aeaeae;
+  --fourth-color: #edf1f3;
+  --primary-font: "Lato", sans-serif;
+}
+.loading {
+  position: fixed;
+  top: 50%; /* Đặt vị trí theo chiều dọc giữa màn hình */
+  left: 50%; /* Đặt vị trí theo chiều ngang giữa màn hình */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Dịch chuyển hiệu ứng loading ngược lại để căn giữa */
+  z-index: 9999; /* Đảm bảo hiệu ứng loading hiển thị trên tất cả các phần khác */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Tạo nền mờ để tạo sự tập trung vào hiệu ứng loading */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.container-product-section {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.color-bg {
+  background-color: var(--color-body-bg);
+}
+/* Banner Top */
+.banner_top {
+  height: 48px;
+  width: 100%;
+}
+
+/* End Banner Top */
+
+/* Container Content */
+.container_content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+/* Banner Scrolled Image */
+
+.BannerScroll-background {
+  display: flex;
+  width: 100%;
+  height: 420px;
+  background-color: #edf1f3;
+  align-items: center;
+  justify-content: center;
+}
+.BannerScroll-left {
+  display: flex;
+  flex-direction: column;
+  max-width: 660px;
+  padding: 0px 12px;
+  align-items: flex-start;
+}
+.BannerScroll-content {
+  position: relative;
+  color: #212529;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.BannerScroll-right {
+  display: flex;
+  max-width: 657px;
+  max-height: 677px;
+  justify-content: center;
+  align-items: center;
+}
+.BannerScroll-right > img {
+  max-width: 450px;
+  max-height: 450px;
+}
+.BannerScroll-Arrow__right,
+.BannerScroll-Arrow__left {
+  position: absolute;
+}
+.BannerScroll-Arrow__right {
+  right: 30px;
+}
+.BannerScroll-Arrow__left {
+  left: 30px;
+}
+
+/* Slogan section */
+.SloganListSection {
+  height: 120px;
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.tilte_slogan {
+  color: #212529;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 25.2px; /* 120% */
+  text-transform: uppercase;
+}
+.desc_slogan {
+  color: #aeaeae;
+  font-size: 16.8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26.88px; /* 160% */
+}
+
+/* Product List Section */
+
+.titleList {
+  color: #212529;
+  font-size: 26px;
+  font-style: bold;
+  font-weight: 550;
+  line-height: 38.4px; /* 120% */
+  text-transform: uppercase;
+  display: flex;
+  align-items: left;
+}
+.titleList:hover {
+  color: #e30019;
+}
+
+.subtitleList {
+  font-size: 20px;
+  font-weight: 600;
+}
+.btn-more {
+  color: var(--secondary-color);
+  font-size: larger;
+  font-weight: 500;
+}
+.btn-more:hover {
+  color: #e30019;
+}
+.product_title {
+  font-weight: 600;
+  font-size: 14px;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to display */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.product_rating {
+  height: fit-content;
+  margin-top: 2px;
+}
+.subTitle {
+  border-left: solid black 2px;
+}
+.productList svg {
+  width: 26px;
+  height: 18px;
+  font-size: 20px;
+}
+.productItem {
+  height: 400px;
+  width: 18%;
+  padding: 10px;
+}
+.productItem > a { 
+  width: 100%;
+  height: 100%;
+}
+.product_image {
+  width: 100%;
+  height: 190px;
+}
+.product_price {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+.productItem:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.product_oldPrice {
+  color: #aeaeae;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.btn-sell {
+  background-color: #e30019;
+  border: none;
+}
+.btn-sell:hover {
+  opacity: 80%;
+}
+.btn-addCart:hover {
+  opacity: 80%;
+}
+.btn-seeMore {
+  border: none;
+  color: #1982f9;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 5%;
+  font-family: var(--primary-font);
+}
+/* Slideshow Section */
+.slideshow-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slide {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.product {
+  display: inline-block;
+  width: 20%; /* Hiển thị cùng lúc 5 sản phẩm */
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* Banner 2 sides */
+.BannerLeft {
+  z-index: 1;
+  left: 20px;
+  width: 150px;
+  height: 450px;
+  top: 100px;
+}
+.BannerRight {
+  z-index: 1;
+  right: 20px;
+  width: 150px;
+  height: 450px;
+  top: 100px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #fafafa;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #212529;
+}
+/* end */

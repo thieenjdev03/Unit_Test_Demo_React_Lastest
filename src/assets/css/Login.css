@@ -1,0 +1,156 @@
+.LoginFormSection {
+  font-family: "Gotham Rounded Book", "sans-serif";
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.LoginFormSection label {
+  color: #fff;
+  text-align: left;
+}
+section {
+  min-width: 450px;
+  min-height: 520px;
+  padding: 15px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border-radius: 10px;
+  background: #2c2d31;
+}
+
+#logo {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.OptionSection {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.OptionSection label {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.OptionSection label:first-child {
+  margin-right: 20px;
+}
+
+form {
+  padding-inline: 60px;
+  display: none;
+  flex-direction: column;
+}
+
+#SignIn:checked ~ section #SignInFormData {
+  display: flex;
+}
+
+#SignIn:checked ~ section .OptionSection label:first-child {
+  margin-bottom: -2px;
+  border-bottom: 2px solid #1ed760;
+}
+
+#SignUp:checked ~ section #SignUpFormData {
+  display: flex;
+}
+
+#SignUp:checked ~ section .OptionSection label:last-child {
+  margin-bottom: -2px;
+  border-bottom: 2px solid #1ed760;
+}
+
+.LoginFormSection input,
+.LoginFormSection button {
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.LoginFormSection button {
+  background: #1ed760;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.LoginFormSection form span {
+  margin-left: 20px;
+}
+
+.LoginFormSection form span label {
+  font-size: 14px;
+  text-transform: lowercase;
+}
+
+.LoginFormSection input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: #3498db;
+}
+
+.LoginFormSection a {
+  color: #797a7e;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.logoSection {
+  height: 84px;
+  display: flex;
+  margin-top: auto;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.logoSection .logo {
+  width: 200px;
+  height: 100%;
+}
+.logoSection img {
+  height: 80%;
+  width: 100%;
+}
+
+.RegistSection,
+.LoginSection {
+  overflow: auto;
+  background-image: url("../img/bg-regis.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 800px;
+  width: 100%;
+}
+.RegistSection .Form,
+.LoginSection .Form {
+  max-height: 90%;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 420px!important;
+}
+.LoginSection .Form {
+  top: 200px;
+  right: 200px;
+  padding-bottom: 30px;
+}
+.RegistSection #firstName,
+#email,
+#password,
+#confirmPassword,
+#username {
+  border-style: solid;
+  border-width: 1px;
+}
