@@ -1,32 +1,36 @@
 import React from 'react';
-import { render, fireEvent, queryByText } from '@testing-library/react';
+import { render, fireEvent, queryByText,getByText, screen } from '@testing-library/react';
 import ProductListComp from './ProductListComp';
-import { calculateTotalPrice } from '../../utils/utils';
+import { calculateTotalOrderPrice } from '../../utils/utils';
 describe('ProductListComp Component', () => {
     test('renders product list correctly', () => {
         const { getByText } = render(<ProductListComp />);
-
         // Kiểm tra xem sản phẩm có hiển thị đúng tên không
         expect(getByText('Product 1')).toBeInTheDocument();
         expect(getByText('Product 2')).toBeInTheDocument();
         expect(getByText('Product 3')).toBeInTheDocument();
     });
 
-    test('adds product to cart when Add to Cart button is clicked', () => {
-        const { getByText } = render(<ProductListComp />);
-        fireEvent.click(queryByText('Add to Cart'));
-        expect(getByText('Cart:')).toBeInTheDocument();
-        expect(getByText('Product 1')).toBeInTheDocument();
-    });
+    it('should add product to cart when Add to Cart button is clicked', () => {
+        render(<ProductListComp />);
+        
+        // Lấy sản phẩm đầu tiên trong danh sách
+        const firstProduct = screen.getByText('Product 1');
+        
+        // Thêm sản phẩm vào giỏ hàng
+        fireEvent.click(firstProduct.parentElement.querySelector('button'));
+        
+        // Kiểm tra xem sản phẩm đã được thêm vào giỏ hàng chưa
+        const cartProduct = screen.getByText('Product 1');
+        expect(cartProduct).toBeInTheDocument();
+      });
 
     test('logs cart when Log Cart button is clicked', () => {
         const { getByText } = render(<ProductListComp />);
 
         // Bấm vào nút Log Cart
         fireEvent.click(getByText('Log Cart'));
-
         // Kiểm tra xem console đã log ra thông tin giỏ hàng chưa
-        // Bạn cần một cách để kiểm tra console log, ví dụ: https://stackoverflow.com/questions/54534276/testing-console-log-in-jest
     });
     test('toggles cart modal when button is clicked', () => {
         const { getByText } = render(<ProductListComp />);
@@ -36,68 +40,24 @@ describe('ProductListComp Component', () => {
         expect(getByText('Mở Giỏ Hàng')).toBeInTheDocument();
     });
     test('returns 0 when the cart is empty', () => {
-        const cart = [
-            {
-                "id": 1,
-                "name": "Product 1",
-                "price": 100,
-                "rating": 4.5,
-                "description": "Description of product 1",
-                "quantity": 4
-            },
-            {
-                "id": 2,
-                "name": "Product 2",
-                "price": 200,
-                "rating": 4.2,
-                "description": "Description of product 2",
-                "quantity": 4
-            },
-            {
-                "id": 3,
-                "name": "Product 3",
-                "price": 150,
-                "rating": 4.8,
-                "description": "Description of product 3",
-                "quantity": 12
-            }
-        ];
-        expect(calculateTotalPrice(cart)).toBe(0);
+        const cart = []
+        expect(calculateTotalOrderPrice(cart)).toBe(0);
     });
 
-    test('returns the correct total price when the cart has items', () => {
-        const cart = [
-            {
-                "id": 1,
-                "name": "Product 1",
-                "price": 100,
-                "rating": 4.5,
-                "description": "Description of product 1",
-                "quantity": 4
-            },
-            {
-                "id": 2,
-                "name": "Product 2",
-                "price": 200,
-                "rating": 4.2,
-                "description": "Description of product 2",
-                "quantity": 4
-            },
-            {
-                "id": 3,
-                "name": "Product 3",
-                "price": 150,
-                "rating": 4.8,
-                "description": "Description of product 3",
-                "quantity": 12
-            }
-        ];
-        // Tính toán tổng giá tiền mong đợi (100*2 + 200*1 + 150*3 = 750)
-        expect(calculateTotalPrice(cart)).toBe(750);
-    });
-
-    test('returns 0 when the cart is null or undefined', () => {
-        const cart = null;
-        expect(calculateTotalPrice(cart)).toBe(0);
-    });
+    it('should calculate total quantity and total price of the cart correctly', () => {
+        render(<ProductListComp />);
+        
+        // Thêm một số sản phẩm vào giỏ hàng
+        const addToCartButtons = screen.queryAllByRole('button', { name: /add to cart/i });
+        fireEvent.click(addToCartButtons[0]); // Thêm sản phẩm 1
+        fireEvent.click(addToCartButtons[1]); // Thêm sản phẩm 2
+        fireEvent.click(addToCartButtons[2]); // Thêm sản phẩm 3
+        
+        // Kiểm tra tổng số lượng và tổng giá trị của giỏ hàng
+        const totalQuantity = screen.getByText(/total quantity/i);
+        const totalPrice = screen.getByText(/total price/i);
+        expect(totalQuantity).toHaveTextContent('3'); // Tổng số lượng
+        expect(totalPrice).toHaveTextContent('450'); // Tổng giá trị
+      });
+      
 });

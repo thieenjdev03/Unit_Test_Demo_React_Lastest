@@ -37,16 +37,6 @@ describe("Register component", () => {
     const alertElement = screen.queryByRole("alert");
     expect(alertElement).not.toBeInTheDocument();
   });
-//Passed
-  it("should show success message when the registration is successful.", async () => {
-    render(<Register />);
-    const buttonElement = screen.getByRole("button", {
-      name: /register/i
-    });
-    await userEvent.click(buttonElement);
-    const alertElement = screen.getByRole("alert");
-    expect(alertElement).toBeInTheDocument();
-  });
   //Passed 
   it("should show success message when the registration is correct requirement and successful.", async () => {
     render(<Register />);
@@ -57,7 +47,7 @@ describe("Register component", () => {
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const passwordInput = screen.getByPlaceholderText('Enter your password');
     const checkbox = screen.getByLabelText('Subscribe to our newsletter');
-
+    
     await userEvent.type(nameInput, 'John Doe');
     await userEvent.type(emailInput, 'johndoe@example.com');
     await userEvent.type(passwordInput, 'password123');

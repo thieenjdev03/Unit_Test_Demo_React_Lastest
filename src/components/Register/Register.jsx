@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Alert, Button, Form } from "react-bootstrap";
 import Select from "react-select";
 import "./register.css";
+import Form from "@formio/react"
+import { Alert, Button, Form as BootstrapForm } from "react-bootstrap";
+import { Form as FormioForm } from "@formio/react"; // Alias Form to FormioForm
 
 const skills = [
   { value: "react", label: "React" },
@@ -59,66 +61,67 @@ const Register = () => {
     <div className="registration">
       <div className="container">
         <h2 className="title" data-testid="title">Register</h2>
-        <Form onSubmit={handleFormSubmit}>
+        <BootstrapForm onSubmit={handleFormSubmit}>
           <h6 className="subtitle">
             Please enter your details below to register yourself.
           </h6>
           {successMsg && <Alert variant="success">{successMsg}</Alert>}
           {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
+          <BootstrapForm.Group className="mb-3" controlId="name">
+            <BootstrapForm.Label>Name</BootstrapForm.Label>
+            <BootstrapForm.Control
               type="text"
               placeholder="Enter your name"
               name="name"
               value={state.name}
               onChange={handleInputChange}
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
+          </BootstrapForm.Group>
+          <BootstrapForm.Group className="mb-3" controlId="email">
+            <BootstrapForm.Label>Email</BootstrapForm.Label>
+            <BootstrapForm.Control
               type="email"
               placeholder="Enter your email"
               name="email"
               value={state.email}
               onChange={handleInputChange}
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
+          </BootstrapForm.Group>
+          <BootstrapForm.Group className="mb-3" controlId="password">
+            <BootstrapForm.Label>Password</BootstrapForm.Label>
+            <BootstrapForm.Control
               type="password"
               placeholder="Enter your password"
               name="password"
               value={state.password}
               onChange={handleInputChange}
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Select your skills</Form.Label>
+          </BootstrapForm.Group>
+          <BootstrapForm.Group className="mb-3" controlId="password">
+            <BootstrapForm.Label>Select your skills</BootstrapForm.Label>
             <Select
               options={skills}
               isMulti
               value={selectedSkill}
               onChange={(selectedOption) => setSelectedSkill(selectedOption)}
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="newsletter">
-            <Form.Check
+          </BootstrapForm.Group>
+          <BootstrapForm.Group className="mb-3" controlId="newsletter">
+            <BootstrapForm.Check
               type="checkbox"
               label="Subscribe to our newsletter"
               checked={subscribe}
               onChange={(event) => setSubscribe(Boolean(event.target.value))}
             />
-          </Form.Group>
-          <Form.Group>
+          </BootstrapForm.Group>
+          <BootstrapForm.Group>
             <Button variant="secondary" type="submit">
               Register
             </Button>
-          </Form.Group>
-        </Form>
+          </BootstrapForm.Group>
+        </BootstrapForm>
       </div>
+
     </div>
   );
 };

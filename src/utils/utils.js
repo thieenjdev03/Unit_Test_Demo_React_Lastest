@@ -37,7 +37,6 @@ export const convertUserObjs = (data) => {
   }
 };
 
-// utils.js
 export const divide = (a, b) => {
   if (b === 0) {
     throw new Error("Cannot divide by zero");
@@ -61,24 +60,18 @@ export const sumArray = (arr) => {
   return arr.reduce((total, num) => total + num, 0);
 };
 
-// orderUtils.js
-
-// Hàm tính tổng giá tiền cho đơn đặt hàng từ một JSON có sẵn
-export const calculateTotalPrice = (order) => {
-  if (!order || !Array.isArray(order.items)) {
-    throw new Error("Invalid order data");
+export function calculateTotalOrderPrice(orders) {
+  let total = 0;
+  for (let i = 0; i < orders.length; i++) {
+      const order = orders[i];
+      total += order.price * order.quantity;
   }
+  return total;
+}
 
-  let totalPrice = 0;
-
-  order.items.forEach((item) => {
-    // Kiểm tra xem mỗi sản phẩm có thuộc tính 'price' hay không
-    if (item && item.price && typeof item.price === "number") {
-      totalPrice += item.price * (item.quantity || 1); // Nếu không có số lượng, mặc định là 1
-    } else {
-      throw new Error("Invalid item data");
-    }
-  });
-
-  return totalPrice;
-};
+export function getTotalPrice(cart) {
+  return cart.reduce((total, currentItem) => total + (currentItem.price * currentItem.quantity), 0);
+}
+export function getTotalQuantity(cart) {
+  return cart.reduce((total, currentItem) => total + currentItem.quantity, 0);
+}

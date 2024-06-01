@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +9,7 @@
 }
 .wrapper {
   padding: 20px;
+  width:100%;
 }
 .homepageSection {
   display: flex;
@@ -42,4 +44,10 @@
 }
 .gap-10 {
   gap: 10px;
+}
+.registerForm2{
+  width: 100%;
+}
+.w-full{ 
+  width: 100%;
 }

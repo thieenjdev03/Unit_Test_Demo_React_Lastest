@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { calculateTotalPrice } from '../../utils/utils';
+import { calculateTotalOrderPrice } from '../../utils/utils';
 import Cart from './Cart'
 
 function Product({ product, onAddToCart }) {
-
   return (
     <div className="product border_solid_black_1px">
       <h3>{product.name}</h3>
@@ -28,6 +27,7 @@ function ProductListComp() {
 
   const logCart = () => {
     console.log('Cart:', cart);
+    console.log(calculateTotalOrderPrice(cart))
   };
 
   const toggleCartModal = () => {
@@ -35,7 +35,6 @@ function ProductListComp() {
   };
   const totalPrice = getTotalPrice(cart);
   const totalQuantity = getTotalQuantity(cart);
-
   // Giả sử products là một mảng các sản phẩm từ JSON
   const products = [
     { id: 1, name: 'Product 1', price: 100, rating: 4.5, description: 'Description of product 1' },
@@ -58,20 +57,24 @@ function ProductListComp() {
 
   return (
     <div className="App">
-      <h1>Product List</h1>
-      <div className="product-list flex-r">
-        {products.map((product, index) => (
-          <Product key={index} product={product} onAddToCart={handleAddToCart} />
-        ))}
-      </div>
-      <button className='mt-10' onClick={logCart}>Log Cart</button>
-      <button className='mt-10' onClick={toggleCartModal}> {showCartModal == false ? <div>
-        Mở Giỏ Hàng
-      </div> :
-        <div>Đóng giỏ hàng</div>}
-      </button>
-      {showCartModal && <Cart totalQuantity={totalQuantity} totalPrice={totalPrice} cart={cart} onClose={toggleCartModal} />}
+    <h1>Product List</h1>
+    <div className="product-list flex-r">
+      {products.map((product, index) => (
+        <Product key={index} product={product} onAddToCart={handleAddToCart} />
+      ))}
     </div>
+    <div>
+    <p>Total Quantity: {totalQuantity}</p>
+    <p>Total Price: {totalPrice}</p>
+  </div>
+<div className = ''>
+<button className='mt-10 mr-4' onClick={logCart}>Log Cart</button>
+<button className='mt-10' onClick={toggleCartModal}> 
+  {showCartModal == false ? <div>Mở Giỏ Hàng</div> : <div>Đóng giỏ hàng</div>}
+</button>
+</div>
+{showCartModal && <Cart totalQuantity={totalQuantity} totalPrice={totalPrice} cart={cart} onClose={toggleCartModal} />}
+  </div>
   );
 }
 

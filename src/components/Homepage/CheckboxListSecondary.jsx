@@ -10,7 +10,7 @@ import Avatar from '@mui/material/Avatar';
 export default function CheckboxListSecondary({ userList, onCheckedUsersChange }) {
     const [checked, setChecked] = React.useState([]);
 
-    const handleToggle = (value) => () => {
+    const handleToggle = React.useCallback((value) => () => {
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
 
@@ -22,7 +22,7 @@ export default function CheckboxListSecondary({ userList, onCheckedUsersChange }
 
         setChecked(newChecked);
         onCheckedUsersChange(newChecked);
-    };
+    }, [checked, onCheckedUsersChange]);
 
     return (
         <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
@@ -46,12 +46,13 @@ export default function CheckboxListSecondary({ userList, onCheckedUsersChange }
                                 <Avatar
                                     alt={`Avatar n°${user.id}`}
                                     src={`/static/images/avatar/${user.id}.jpg`}
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = '/static/images/avatar/default.jpg';
+                                    }}
                                 />
                             </ListItemAvatar>
-                            <div className="textSection">
-                                <ListItemText id={labelId} primary={`User name: ${user.name}`} />
-                                <div className="phoneNumberText">Phone Number: {user.phone}</div>
-                            </div>
+                            <ListItemText id={labelId} primary={`User name: ${user.name}`} secondary={`Phone Number: ${user.phone}`} />
                         </ListItemButton>
                     </ListItem>
                 );
