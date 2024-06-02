@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +9,7 @@
 }
 .wrapper {
   padding: 20px;
+  width: 100%;
 }
 .homepageSection {
   display: flex;
@@ -24,28 +26,4 @@
 }
 .mt_10 {
   margin-top: 10px;
-}
-.flex-r {
-  display: flex;
-  flex-direction: row;
-}
-.flex-c {
-  display: flex;
-  flex-direction: column;
-}
-.mr-4 {
-  margin-right: 4px;
-}
-.mt-10 {
-  margin-top: 10px;
-}
-.gap-10 {
-  gap: 10px;
-}
-.w-50 {
-  width: 50%;
-}
-
-.h-full {
-  height: 100%;
 }
