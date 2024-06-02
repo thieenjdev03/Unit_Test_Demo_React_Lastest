@@ -1,0 +1,106 @@
+.bg-cart {
+  background-color: #f6f7fa;
+  z-index: 1;
+}
+.CartSection {
+  position: relative;
+  width: 660px;
+  max-height: 2000px;
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.ProcessSection {
+  background-color: #a6a6a7;
+}
+.bg-step {
+  border-radius: 10%;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+}
+.Process-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  width: 140px;
+  height: 100px;
+}
+.process-Title {
+  text-align: center;
+  width: 110px;
+  height: 40px;
+  color: var(--third-color);
+}
+.process-Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid black 1px;
+}
+
+/* Product Information */
+.productTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 8px;
+  width: 300px;
+  height: 70px;
+}
+.productPrice {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.productOldPrice {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+/* QualityCounter.css */
+.productQuantity {
+  height: 34px;
+}
+.quality-counter {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  border: solid 1px #ddd;
+}
+
+.productQuantity .btnCart {
+  padding: 0 8px;
+  border: solid 1px #ddd;
+}
+
+.mainText {
+  font-size: larger;
+}
+.subText {
+  font-size: large;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.btnContinueShopping {
+  height: 60px;
+  font-size: large;
+}
+.btnOrderNow {
+  height: 60px;
+  font-size: large;
+}
+.btnOrderNow {
+  background-color: var(--primary-color);
+}
+.searching-result {
+  height: 300px;
+}

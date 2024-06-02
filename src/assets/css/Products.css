@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+.bg-product {
+  background-color: #ececec;
+}
+.containerDetail {
+  width: 1540px;
+}
+.containerDetail_content {
+  width: 80%;
+  margin: 0 auto;
+}
+.mySlides {
+  display: none;
+}
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/* Detail Product section */
+
+.productTitle {
+  font-size: 26px;
+  font-style: bold;
+  font-weight: 700;
+}
+.productPrice {
+  font-size: 26px;
+  font-style: bold;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 30px;
+}
+.productOldPrice {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--third-color);
+  text-decoration: line-through;
+  line-height: 30px;
+}
+.productSale {
+  font-size: 14px;
+  color: var(--primary-color);
+  padding: 0 6px 0 6px;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.btnSection {
+}
+.productPolicySection {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--second-color);
+}
+
+/* Description section */
+.containerDescSection {
+  border: #ececec 1px solid;
+  margin-left: 24px;
+  border-radius: 10px;
+  max-width: 440px;
+}
+.descTitle {
+  line-height: 64px;
+  background-color: #ececec;
+  border: #ececec 1px solid;
+  padding-left: 10px;
+  border-radius: 10px 10px 0 0;
+  color: var(--second-color);
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.productDesc {
+  padding: 20px;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.productDesc h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.productDesc p {
+  font-size: 16px;
+  margin: 0 0 15px;
+}
+
+.productDesc a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.productDesc a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.subImgBottom:hover {
+  border: 1px solid var(--primary-color);
+}
+
+.productOldPriceDetail,
+.productPriceDetail {
+  margin: 0 !important;
+}
+
+.FlaskSale-main-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.ReviewForm {
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.TitleForm {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--second-color);
+  margin-bottom: 6px;
+}
+.getReviewSection {
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  margin-left: 20px;
+}
+.getReview_title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--second-color);
+}
+
+.reviewItem {
+  margin-bottom: 20px;
+  border-bottom: solid 1px #333;
+  padding-bottom: 20px;
+}
+.userSection p {
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--second-color);
+}
+.userSection span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--second-color);
+}
+.getReviewSection {
+  width: 80%;
+}
